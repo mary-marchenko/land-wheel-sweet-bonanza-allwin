@@ -1,0 +1,586 @@
+$black: #090A18
+$green-blue: #00CDCF
+$green-blue-hover-maket: #09D6D8
+$green-blue-hover: #00b4b7
+$blue: #3396D3
+$white: #FFFFFF
+$white2: #FBFCFD
+$text: #1B1B1F
+$bg: #0B1E2A
+
+$font-exo2-semiBold: 'Exo2-SemiBold', sans-serif // 600
+$font-exo2-bold: 'Exo2-bold', sans-serif // 700
+$font-din: DINPro-CondLight, sans-serif
+
+
+//test
+.menu-btn
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 20
+  width: fit-content
+  background: white
+  padding: 3px
+
+.menu-test
+  position: fixed
+  left: 0
+  top: 25px
+  z-index: 20
+  display: flex
+  gap: 2px
+  flex-direction: column
+  & > button
+    width: fit-content
+    background: white
+    color: black
+    padding: 2px
+    font-family: inherit
+    border-radius: 2px
+
+
+
+body
+  -webkit-tap-highlight-color: rgba(0,0,0,0)
+  overscroll-behavior: none
+  background: $bg
+  img
+    max-width: 100%
+    height: auto
+
+
+.position
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  margin: auto
+
+.bonus
+  width: 100%
+  height: 100%
+  overflow: hidden
+  position: relative
+  background: $bg url('../img/bg-desc.jpg') no-repeat 50% 0/cover
+  @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+    background: $bg url('../img/bg-desc.jpg') no-repeat 50% 0/cover
+  @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+    background: $bg  url('../img/bg-tab.jpg') no-repeat 50% 0/cover
+  @media screen and (max-width: 500px) and (orientation: portrait)
+    background: $bg url("../img/bg-mob.jpg") no-repeat 50% 0%/cover
+  @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+    background: $bg url("../img/bg-landscape.jpg") no-repeat 50% 0/cover
+  &__overlay
+    background: rgba(6, 16, 20, 0.80)
+    backdrop-filter: blur(4px)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 10
+    transition: opacity 1s linear, visibility .5s linear
+  &__firstWin,
+  &__secondWin
+    width: 448px
+    min-width: 448px
+    height: 440px
+    min-height: 440px
+    background: url('../img/popup-bg.png') no-repeat 50% 0/contain
+  &__firstWin
+    padding: 75px 81px 0
+    &-info
+      display: flex
+      align-items: center
+      flex-direction: column
+      height: 100%
+    &-title
+      color: $white
+      font-family: $font-exo2-bold
+      font-size: 18px
+      line-height: 18px
+      text-align: center
+      margin: 0 0 20px 0
+      text-transform: uppercase
+      span
+        font-family: $font-exo2-bold
+        font-size: 40px
+        line-height: 50px
+        color: $white
+    &-decor
+      position: absolute
+      max-width: fit-content
+      width: 195px
+      top: 59%
+      right: calc(50% - 310px)
+      animation: levitate 3.3s ease-in-out infinite
+    &-win
+      white-space: nowrap
+      font-family: $font-exo2-bold
+      font-size: 40px
+      line-height: 40px
+      margin: 30px 0
+      text-align: center
+      color: $white
+      position: relative
+      display: flex
+      justify-content: center
+      align-items: center
+      gap: 12px
+      span
+        display: flex
+        justify-content: center
+        align-items: center
+        font-family: $font-exo2-semiBold
+        background-color: $white
+        color: $blue
+        width: 25px
+        height: 25px
+        border-radius: 50%
+        padding-bottom: 7px
+        font-size: 30px
+
+    &-text
+      white-space: nowrap
+      display: flex
+      justify-content: center
+      align-items: center
+      font-family: $font-exo2-bold
+      font-size: 32px
+      line-height: 32px
+      text-align: center
+      color: $white2
+      width: 100%
+      margin-bottom: 30px
+      span
+        display: flex
+        justify-content: center
+        align-items: center
+        font-family: inherit
+        color: $white
+        background: url("../img/num-bg.png") no-repeat 0 0/contain
+        width: 50px
+        height: 52px
+        border-radius: 5px
+        margin: 0 10px
+    &-btn
+      cursor: pointer
+      font-family: $font-exo2-semiBold
+      padding: 15px 20px
+      text-align: center
+      max-width: 128px
+      font-size: 18px
+      line-height: 21px
+      text-transform: uppercase
+      border-radius: 6px
+      background: $green-blue
+      color: $black
+      transition: all .3s ease
+      &:hover
+        transform: scale(1.1)
+        background: $green-blue-hover
+    //&-bottom
+    //  margin-top: 102px
+    //  color: $grey3
+    //  font-family: $font-exo2-regular
+    //  font-size: 10px
+    //  line-height: 14px
+    //  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25)
+    //  width: 295px
+    //  text-align: center
+    //  opacity: 0.7
+  &__secondWin
+    padding: 75px 40px 0
+    &-info
+      display: flex
+      flex-direction: column
+      height: 100%
+      align-items: center
+    &-title
+      color: $white
+      font-family: $font-exo2-bold
+      font-size: 18px
+      line-height: 18px
+      text-align: center
+      margin: 0 0 20px 0
+      text-transform: uppercase
+      span
+        font-family: $font-exo2-bold
+        font-size: 40px
+        line-height: 50px
+        color: $white
+    &-win
+      font-family: $font-exo2-bold
+      font-size: 40px
+      line-height: 40px
+      margin: 35px 0
+      text-align: center
+      color: $white
+      position: relative
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      gap: 20px
+      &-bottom
+        gap: 12px
+        display: flex
+        align-items: center
+      span
+        &.to
+          border-radius: 8px
+          padding: 5px 19px 7px
+          background-color: $blue
+          color: $white
+          text-transform: uppercase
+          font-size: 40px
+          font-family: $font-exo2-bold
+        &.plus
+          font-size: 30px
+          display: flex
+          justify-content: center
+          align-items: center
+          font-family: $font-exo2-semiBold
+          background-color: $white
+          color: $blue
+          width: 25px
+          height: 25px
+          border-radius: 50%
+          padding-bottom: 7px
+
+    &-btn
+      max-width: 178px
+      cursor: pointer
+      font-family: $font-exo2-semiBold
+      padding: 19px 15px 17px
+      text-align: center
+      font-size: 18px
+      line-height: 21px
+      text-transform: uppercase
+      border-radius: 6px
+      background: $green-blue
+      color: $black
+      transition: all .3s ease
+      &:hover
+        transform: scale(1.1)
+        background: $green-blue-hover
+      &:hover
+        background: $green-blue-hover
+  &__main
+    //padding: 0 120px 0 55px
+    padding: 0 20px
+    height: 100%
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    gap: 15px
+    &-buttons
+      display: flex
+      position: absolute
+      top: 54px
+      right: 3%
+      &-right
+        display: inline-block
+        padding: 15px 20px
+        font-family: $font-exo2-semiBold
+        font-size: 18px
+        line-height: 18px
+        text-transform: uppercase
+        color: $black
+        background-color: $green-blue
+        border-radius: 6px
+        transition: all .3s ease
+        &:hover
+          transform: scale(1.1)
+          background: $green-blue-hover
+    &-logo
+      //position: absolute
+      //top: 0
+      //left: 50%
+      //transform: translateX(-50%)
+      background: url("../img/logo.svg") no-repeat 0 0/contain
+      height: 100px
+      width: 450px
+      min-width: 450px
+      z-index: 1
+    &-left
+      position: relative
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      height: 90%
+      max-height: 890px
+      //gap: 144px
+      //gap: 10%
+    &-center
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      height: 45%
+      min-height: 320px
+    &-txt
+      display: flex
+      flex-direction: column
+      align-items: center
+      align-self: center
+      justify-content: center
+      gap: 33px
+      //padding: 50px 0 333px
+      //margin: 0 147px 0 0
+      position: relative
+      .bonus__main-logo
+        display: block
+      &-top
+        font-family: $font-exo2-bold
+        white-space: nowrap
+        font-size: 40px
+        line-height: 40px
+        text-transform: uppercase
+        color: $white2
+      &-center
+        display: flex
+        align-items: center
+        font-family: $font-exo2-bold
+        font-size: 32px
+        line-height: 32px
+        color: $white2
+        //margin: 0 0 65px 0
+        text-transform: uppercase
+        span
+          font-size: 40px
+          display: flex
+          justify-content: center
+          align-items: center
+          font-family: inherit
+          color: $white2
+          width: 56px
+          height: 56px
+          border-radius: 5px
+          margin: 0 10px
+          background: url("../img/num-bg.png") no-repeat 0 0/contain
+    &-bonanza
+      width: 650px
+      min-width: 650px
+      height: 140px
+      background: url("../img/bonanza.png") no-repeat 50% 50%/contain
+      @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+        background: url("../img/bonanza.png") no-repeat 50% 50%/contain
+      @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+        background: url("../img/bonanza.png") no-repeat 50% 50%/contain
+      @media screen and (max-width: 500px) and (orientation: portrait)
+        background: url("../img/bonanza-mob.png") no-repeat 50% 50%/contain
+      @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+        background: url("../img/bonanza-mob.png") no-repeat 50% 50%/contain
+    &-wrapper
+      margin-right: -20px
+      position: relative
+      z-index: 2
+      display: flex
+      align-items: center
+    &-wheel
+      position: relative
+      &::before
+        content: ''
+        position: absolute
+        width: 170px
+        height: 155px
+        background: url("../img/wheel-fav.png") no-repeat 0 0/contain
+        top: -10px
+        left: 49.7%
+        transform: translateX(-50%)
+        z-index: 4
+      &-wrap
+        position: relative
+      &-btn
+        width: 170px
+        height: 170px
+        z-index: 5
+        top: 0
+        cursor: pointer
+        @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+          background: url("../img/wheel-btn.png") no-repeat 0 0/contain
+        @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+          background: url("../img/wheel-btn.png") no-repeat 0 0/contain
+        @media screen and (max-width: 500px) and (orientation: portrait)
+          background: url("../img/wheel-btn-mob.png") no-repeat 0 0/contain
+        @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+          background: url("../img/wheel-btn-mob.png") no-repeat 0 0/contain
+      &-frame
+        width: 950px
+        height: 950px
+        position: relative
+        margin: auto
+        z-index: 2
+        background: url("../img/wheel-frame.png") no-repeat 0 100%/contain
+        @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+          background: url("../img/wheel-frame.png") no-repeat 0 100%/contain
+        @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+          background: url("../img/wheel-frame.png") no-repeat 50% 100%/contain
+        @media screen and (max-width: 500px) and (orientation: portrait)
+          background: url("../img/wheel-frame-mob-2.png") no-repeat 50% 100%/contain
+        @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+          background: url("../img/wheel-frame-mob-2.png") no-repeat 50% 100%/contain
+      &-reel
+        width: 782px
+        height: 782px
+        top: 80px
+        left: 0
+        bottom: 85px
+        z-index: 1
+        background: url("../img/wheel-reel.png") no-repeat 0 0/contain
+        @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+          background: url("../img/wheel-reel.png") no-repeat 0 0/contain
+        @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+          background: url("../img/wheel-reel.png") no-repeat 0 0/contain
+        @media screen and (max-width: 500px) and (orientation: portrait)
+          background: url("../img/wheel-reel-mob-2.png") no-repeat 0 0/contain
+        @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+          background: url("../img/wheel-reel-mob-2.png") no-repeat 0 0/contain
+      &-bonanza
+        position: absolute
+        pointer-events: none
+        width: 245px
+        height: 538px
+        bottom: 0
+        z-index: 3
+        transform: translateX(-50%)
+        background: url("../img/cat-l-desc.png") no-repeat 50% 50%/contain
+        @media screen and (min-width: 600px) and (orientation: landscape) and (min-height: 501px)
+          background: url("../img/cat-l-desc.png") no-repeat 50% 50%/contain
+        @media screen and (min-width: 601px) and (max-width: 1300px) and (orientation: portrait)
+          background: url("../img/cat-l-desc.png") no-repeat 50% 50%/contain
+        @media screen and (max-width: 500px) and (orientation: portrait)
+          background: url("../img/cat-l-mob.png") no-repeat 50% 50%/contain
+        @media (max-width: 950px) and (orientation: landscape) and (max-height: 500px)
+          background: url("../img/cat-l-mob.png") no-repeat 50% 50%/contain
+  &__footer
+    z-index: 5
+    display: flex
+    align-items: center
+    overflow: hidden
+    &-btn
+      display: none
+    &-row
+      padding-top: 15px
+      height: fit-content
+      width: 100%
+      display: flex
+      align-items: center
+      justify-content: space-between
+    &-info
+      display: flex
+      align-items: center
+      &-licensed
+        display: flex
+        align-items: center
+        &-img
+          display: block
+          width: 100px
+          &:not(:last-child)
+            margin: 0 5px 0 0
+          &:nth-child(5)
+            margin-left: 17px
+            width: 125px
+  &__legal
+    //display: flex
+    display: none
+    background: $white
+    font-family: $font-din
+    font-size: 2.55vw
+    color: $text
+    height: fit-content
+    justify-content: center
+    align-items: center
+    padding-top: 3px
+    z-index: 5
+  &__legal-desc
+    padding: 0 23px
+    z-index: 5
+    width: 100%
+    height: 170px
+    background: #ffffff
+    &-wrap
+      width: 100%
+      height: 100%
+      background: url("../img/warning.svg") no-repeat 50% center/contain
+
+
+.audio
+  display: none
+.pulse-btn
+  animation: 1.8s infinite pulse-btn ease-in-out
+
+@keyframes pulse-btn
+  0%
+    transform: scale(1)
+  50%
+    transform: scale(1.07)
+  100%
+    transform: scale(1)
+
+
+@keyframes bulbs-opacity
+  0%
+    opacity: 0
+  50%
+    opacity: 1
+  100%
+    opacity: 0
+
+
+@keyframes lamps-light
+  0%
+    transform: translateX(-50%) scale(1)
+  50%
+    transform: translateX(-50%) scale(1.1)
+  100%
+    transform: translateX(-50%) scale(1)
+
+.reel-rotation-first
+  animation: 6s reel-rotation-first cubic-bezier(.25,.75,.5,1.05) forwards
+
+@keyframes reel-rotation-first
+  0%
+    transform: rotate(0deg)
+  80%
+    transform: rotate(953deg)
+  90%
+    transform: rotate(941deg)
+  100%
+    transform: rotate(946deg)
+
+.reel-rotation-second
+  animation: 6s reel-rotation-second cubic-bezier(.25,.75,.5,1.05) forwards
+
+@keyframes reel-rotation-second
+  0%
+    transform: rotate(1037deg)
+  80%
+    transform: rotate(1897deg)
+  90%
+    transform: rotate(1885deg)
+  100%
+    transform: rotate(1892deg)
+
+.hide
+  display: none
+
+.opacity-overlay
+  opacity: 0
+  visibility: hidden
+
+@keyframes levitate
+  0%
+    transform: translateY(0)
+  50%
+    transform: translateY(-10px)
+  100%
+    transform: translateY(0)
